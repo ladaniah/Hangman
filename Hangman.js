@@ -2,8 +2,7 @@ let POSSIBLE_WORDS = ["Apple", "Jungle", "Castle", "Dolphin"];
 let word = "";
 let guesses = "";
 let guessCount = 6;
-let gameOver = true;
-
+let gameOver = true;   
 function newGame() {
     let randomIndex = Math.floor(Math.random() * POSSIBLE_WORDS.length);
     word = POSSIBLE_WORDS[randomIndex];
@@ -20,6 +19,11 @@ function guess() {
     let input = document.getElementById("guess");
     let letter = input.value.toLowerCase();
     input.value = "";
+
+    if (letter == "" || guesses.indexOf(letter) != -1) {   
+        return;                                            
+    }
+
     if (word.toLowerCase().indexOf(letter) < 0) {
         guessCount--;
     }
@@ -45,11 +49,11 @@ function updateScreen() {
 
     if (clueString.indexOf("_") == -1) {
         gameOver = true;
-        guessArea.textContent = "You win! 🎉";
+        guessArea.textContent = "YOU WIN";
         guessArea.className = "message";
     } else if (guessCount <= 0) {
         gameOver = true;
-        guessArea.textContent = "You lose! The word was " + word;
+        guessArea.textContent = "YOU LOSE! The word was " + word;
         guessArea.className = "message";
     } else {
         guessArea.className = "";
