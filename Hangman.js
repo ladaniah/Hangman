@@ -1,19 +1,22 @@
 let POSSIBLE_WORDS = ["Apple", "Jungle", "Castle", "Dolphin"];
 let word = "";
 let guesses = "";
-
+let guessCount = 6;                       
 function newGame() {
     let randomIndex = Math.floor(Math.random() * POSSIBLE_WORDS.length);
     word = POSSIBLE_WORDS[randomIndex];
     guesses = "";
+    guessCount = 6;                     
     updateScreen();
 }
 
 function guess() {
     let input = document.getElementById("guess");
     let letter = input.value.toLowerCase();
+    if (word.toLowerCase().indexOf(letter) < 0) {  
+        guessCount--;
+    }
     guesses += letter;
-    input.value = "";
     updateScreen();
 }
 
@@ -29,5 +32,9 @@ function updateScreen() {
     }
     let clue = document.getElementById("clue");
     clue.textContent = clueString;
-   
+    let guessArea = document.getElementById("guesses");
+    guessArea.textContent = "Guessed Letters: " + guesses;
+
+    let image = document.getElementById("hangmanpic");
+    image.src = "images/hangman" + guessCount + ".gif";  
 }
