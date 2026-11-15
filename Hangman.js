@@ -19,6 +19,7 @@ function guess() {
     }
     let input = document.getElementById("guess");
     let letter = input.value.toLowerCase();
+    input.value = "";
     if (word.toLowerCase().indexOf(letter) < 0) {
         guessCount--;
     }
@@ -44,11 +45,11 @@ function updateScreen() {
 
     if (clueString.indexOf("_") == -1) {
         gameOver = true;
-        guessArea.textContent = "YOU WIN!";
+        guessArea.textContent = "You win! 🎉";
         guessArea.className = "message";
     } else if (guessCount <= 0) {
         gameOver = true;
-        guessArea.textContent = "YOU LOSE! The word was " + word;
+        guessArea.textContent = "You lose! The word was " + word;
         guessArea.className = "message";
     } else {
         guessArea.className = "";
