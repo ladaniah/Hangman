@@ -2,19 +2,19 @@ let POSSIBLE_WORDS = ["Apple", "Jungle", "Castle", "Dolphin"];
 let word = "";
 let guesses = "";
 let guessCount = 6;
-let gameOver = true;                      
+let gameOver = true;
 
 function newGame() {
     let randomIndex = Math.floor(Math.random() * POSSIBLE_WORDS.length);
     word = POSSIBLE_WORDS[randomIndex];
     guesses = "";
     guessCount = 6;
-    gameOver = false;                     
+    gameOver = false;
     updateScreen();
 }
 
 function guess() {
-    if (gameOver) {                     
+    if (gameOver) {
         return;
     }
     let input = document.getElementById("guess");
@@ -37,15 +37,22 @@ function updateScreen() {
         }
     }
 
-
-    if (clueString.indexOf("_") == -1 || guessCount <= 0) {
-        gameOver = true;
-    }
-
     let clue = document.getElementById("clue");
     clue.textContent = clueString;
     let guessArea = document.getElementById("guesses");
     guessArea.textContent = "Guessed Letters: " + guesses;
+
+    if (clueString.indexOf("_") == -1) {
+        gameOver = true;
+        guessArea.textContent = "YOU WIN!";
+        guessArea.className = "message";
+    } else if (guessCount <= 0) {
+        gameOver = true;
+        guessArea.textContent = "YOU LOSE! The word was " + word;
+        guessArea.className = "message";
+    } else {
+        guessArea.className = "";
+    }
 
     let image = document.getElementById("hangmanpic");
     image.src = "images/hangman" + guessCount + ".gif";
