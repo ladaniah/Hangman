@@ -1,4 +1,15 @@
-let POSSIBLE_WORDS = ["Apple", "Jungle", "Castle", "Dolphin"];
+let POSSIBLE_WORDS = [
+    "Apple", "Jungle", "Castle", "Dolphin", "Banana", "Guitar", "Rocket",
+    "Pirate", "Volcano", "Penguin", "Pumpkin", "Wizard", "Lantern", "Thunder",
+    "Blanket", "Cactus", "Dragon", "Island", "Jacket", "Kitten", "Lemon",
+    "Mountain", "Notebook", "Octopus", "Pickle", "Quilt", "Rainbow", "Sandwich",
+    "Tornado", "Unicorn", "Vampire", "Waffle", "Zebra", "Galaxy", "Hamster",
+    "Igloo", "Kayak", "Marshmallow", "Necklace", "Orange", "Pajamas", "Robot",
+    "Squirrel", "Treasure", "Umbrella", "Violin", "Whistle", "Yogurt",
+    "Butterfly", "Chocolate", "Dinosaur", "Elephant", "Firework", "Giraffe",
+    "Hedgehog", "Jellyfish", "Keyboard", "Lighthouse", "Moonlight", "Pineapple",
+    "Scarecrow", "Snowflake", "Spaghetti", "Sunflower", "Telescope", "Waterfall"
+];
 let word = "";
 let guesses = "";
 let guessCount = 6;
