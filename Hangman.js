@@ -9,6 +9,7 @@ let POSSIBLE_WORDS = [
     "Butterfly", "Chocolate", "Dinosaur", "Elephant", "Firework", "Giraffe",
     "Hedgehog", "Jellyfish", "Keyboard", "Lighthouse", "Moonlight", "Pineapple",
     "Scarecrow", "Snowflake", "Spaghetti", "Sunflower", "Telescope", "Waterfall"
+    
 ];
 let word = "";
 let guesses = "";
